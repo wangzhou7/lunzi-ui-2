@@ -27,7 +27,7 @@
     margin-right: auto;
   }
   > .menu {
-    display: flex;
+    display:flex;
     white-space: nowrap;
     flex-wrap: nowrap;
     > li {
