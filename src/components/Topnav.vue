@@ -1,14 +1,13 @@
 <script lang="ts">
-import { inject, Ref } from 'vue'
+import { inject, Ref } from "vue";
 export default {
   setup() {
-    const visible = inject<Ref<boolean>>
-      ('menuvisible') // get
+    const visible = inject<Ref<boolean>>("menuvisible");         // get
     // console.log('topnav 获取的 menuvisible 为：'+ menuvisible.value)
     const toggleMenu = () => {
-      visible.value = !visible.value
+      visible.value = !visible.value;
     }
-    return { toggleMenu }
+    return { toggleMenu };
   }
 }
 </script>
@@ -36,7 +35,10 @@ export default {
   background: pink;
   display: flex;
   padding: 16px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 10;
   justify-content: center;
   align-items: center;
@@ -62,7 +64,7 @@ export default {
     position: absolute;
     left: 16px;
     top: 50%;
-    transform: translate(-50%);
+    transform: translateY(-50%);
     display: none;
   }
   @media(max-width:500px){

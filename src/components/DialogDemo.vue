@@ -1,6 +1,6 @@
 <template>
     <div>
-       Switch 的文档 
+        Dialog 示例
     </div>
 </template>
 
