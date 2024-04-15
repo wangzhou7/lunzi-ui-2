@@ -1,15 +1,19 @@
-<template>
-  <router-view />
-</template>
-
 <script lang="ts">
 import { ref, provide } from 'vue'
 
 export default {
   name: 'App',
   setup() {
-   const visible = ref(true)
-   provide('menuvisible', visible)// set
+    const width = document.documentElement.clientWidth
+    const visible = ref(width <= 500 ? false : true)
+    provide('menuvisible', visible)// set
   }
 }
 </script>
+
+
+
+
+<template>
+  <router-view />
+</template>
