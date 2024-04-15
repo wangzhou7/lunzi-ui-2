@@ -1,11 +1,15 @@
 <template>
-  <router-view/>
+  <router-view />
 </template>
 
-<script>
-import Topnav from './components/Topnav.vue'
+<script lang="ts">
+import { ref, provide } from 'vue'
 
 export default {
   name: 'App',
+  setup() {
+   const visible = ref(true)
+   provide('menuvisible', visible)// set
+  }
 }
 </script>
