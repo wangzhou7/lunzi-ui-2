@@ -28,6 +28,7 @@ button {
   background: grey;
   border-radius: $h/2;
   position: relative;
+
 }
 
 button > span {
@@ -38,6 +39,7 @@ button > span {
   width: $h2;
   background: white;
   border-radius: $h2 / 2;
+  transition: left 0.25s;
 }
 
 button.checked {
