@@ -23,3 +23,4 @@ export default {
 <template>
   <router-view />
 </template>
+
