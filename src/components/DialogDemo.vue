@@ -3,8 +3,16 @@
     <h2>示例1</h2>
     <Button @click="toggle">toggle</Button>
     <Dialog v-model:visible="x" :closeOnClickoverly="false" 
-    :ok="f1" :cancel="f2"
-    ></Dialog>
+    :ok="f1" :cancel="f2">
+    <template v-slot:content>
+        <strong>你好</strong>
+        <div>hi</div>
+    </template>
+    <template v-slot:title>
+        <strong>加粗的标题</strong>
+    </template>
+    
+    </Dialog>
 </template>
 
 <script lang="ts">

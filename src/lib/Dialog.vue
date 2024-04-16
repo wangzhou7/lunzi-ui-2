@@ -4,12 +4,11 @@
         <div class="lunzi-dialog-wrapper">
             <div class="lunzi-dialog">
                 <header>
-                    标题
+                    <slot name="title" />
                     <span @click="close" class="lunzi-dialog-close"></span>
                 </header>
                 <main>
-                    <p>第一行字</p>
-                    <p>第二行字</p>
+                    <slot name="content"/>
                 </main>
                 <footer>
                     <Button level="main" @click="OK">OK</Button>
@@ -24,6 +23,10 @@
 import Button from "./Button.vue";
 export default {
     props: {
+        title:{
+            type: String,
+            default: '提示'
+        },
         visible:
         {
             type: Boolean,
