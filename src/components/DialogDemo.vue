@@ -8,7 +8,6 @@
 
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue';
-import Dialog from '../lib/Dialog.vue';
 export default {
     components:{
         Dialog
