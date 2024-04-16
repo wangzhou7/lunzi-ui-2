@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{ checked: value }"> <span></span></button>
+  <button class="lunzi-switch" @click="toggle" :class="{ 'lunzi-checked': value }"> <span></span></button>
 </template>
 <script lang="ts">
 import { ref } from "vue";
@@ -22,7 +22,7 @@ export default {
 $h: 22px;
 $h2: $h - 4px;
 
-button {
+.lunzi-switch {
   height: $h;
   width: $h*2;
   border: none;
@@ -41,7 +41,7 @@ button {
     transition: all 0.25s;
   }
 
-  &.checked {
+  &.lunzi-checked {
     background: #1890ff;
     >span {left: calc(100% - #{$h2} - 2px);}
   }
@@ -54,7 +54,7 @@ button {
     >span {width: $h2 + 4px;}
   }
 
-  &.checked:active {
+  &.lunzi-checked:active {
     >span {width: $h2 +4px;
           margin-left: -4px;}
   }

@@ -1,9 +1,7 @@
 <template>
-    <div :size="size">
         <button class="lunzi-button" :class="`theme-${theme}`">
             <slot />
         </button>
-    </div>
 </template>
 
 <script lang="ts">
