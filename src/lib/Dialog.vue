@@ -1,16 +1,19 @@
 <template>
     <template v-if="visible">
-        <div class="lunzi-dialog-overlay"></div>
+        <div @click="onClickoverly" class="lunzi-dialog-overlay"></div>
         <div class="lunzi-dialog-wrapper">
             <div class="lunzi-dialog">
-                <header>标题 <span class="lunzi-dialog-close"></span></header>
+                <header>
+                    标题
+                    <span @click="close" class="lunzi-dialog-close"></span>
+                </header>
                 <main>
                     <p>第一行字</p>
                     <p>第二行字</p>
                 </main>
                 <footer>
-                    <Button level="main">OK</Button>
-                    <Button>Cancel</Button>
+                    <Button level="main" @click="OK">OK</Button>
+                    <Button @click="Cancel">Cancel</Button>
                 </footer>
             </div>
         </div>
@@ -25,12 +28,44 @@ export default {
         {
             type: Boolean,
             default: false
+        },
+        closeOnClickoverly: {
+            type: Boolean,
+            default: true
+        },
+        ok: {
+            type: Function
+        },
+        cancel:{
+            type: Function
         }
     },
-        components: 
-        { 
-            Button 
+
+    components:
+    {
+        Button
+    },
+
+    setup(props, context) {
+        const close = () => {
+            context.emit('update:visible', false)
         }
+        const OnClickoverly = () =>{
+            if(props.closeOnClickoverly){
+                close()
+            }
+        }
+        const OK = ()=>{
+            if ( props.ok?.() !== false) {
+                close()
+            }
+        }
+        const Cancel = ()=>{
+            context.emit('cancel')
+            close()
+        }
+        return { close,OnClickoverly,OK,Cancel }
+    }
 }
 </script>
 
