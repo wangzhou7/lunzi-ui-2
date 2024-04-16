@@ -1,6 +1,6 @@
 <template>
     <div :size="size">
-        <button v-bind="rest">
+        <button class="lunzi-button" :class="`theme-${theme}`">
             <slot />
         </button>
     </div>
@@ -8,17 +8,14 @@
 
 <script lang="ts">
 export default {
-    inheritAttrs: false,
-    porps:{},
-    setup(props, context) {
-        const { size, ...rest } = context.attrs
-        return { size, rest }
+    props: {
+        theme: {
+            type: String,
+            default: 'button'
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-div {
-    border: 1px solid red;
-}
 </style>
