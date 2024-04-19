@@ -1,18 +1,19 @@
 <template>
     <template v-if="visible">
-        <div @click="onClickoverly" class="lunzi-dialog-overlay"></div>
+        <teleport to='body' />
+        <div class="lunzi-dialog-overlay" @click="onClickoverly"></div>
         <div class="lunzi-dialog-wrapper">
             <div class="lunzi-dialog">
                 <header>
                     <slot name="title" />
-                    <span @click="close" class="lunzi-dialog-close"></span>
+                    <span class="lunzi-dialog-close" @click="close"></span>
                 </header>
                 <main>
-                    <slot name="content"/>
+                    <slot name="content" />
                 </main>
                 <footer>
-                    <Button level="main" @click="OK">OK</Button>
-                    <Button @click="Cancel">Cancel</Button>
+                    <Button level="main" @click="OK"> OK </Button>
+                    <Button @click="Cancel"> Cancel </Button>
                 </footer>
             </div>
         </div>
@@ -23,7 +24,7 @@
 import Button from "./Button.vue";
 export default {
     props: {
-        title:{
+        title: {
             type: String,
             default: '提示'
         },
@@ -34,12 +35,12 @@ export default {
         },
         closeOnClickoverly: {
             type: Boolean,
-            default: true
+            default: false
         },
         ok: {
             type: Function
         },
-        cancel:{
+        cancel: {
             type: Function
         }
     },
@@ -53,21 +54,21 @@ export default {
         const close = () => {
             context.emit('update:visible', false)
         }
-        const OnClickoverly = () =>{
-            if(props.closeOnClickoverly){
+        const OnClickoverly = () => {
+            if (props.closeOnClickoverly) {
                 close()
             }
         }
-        const OK = ()=>{
-            if ( props.ok?.() !== false) {
+        const OK = () => {
+            if (props.ok?.() !== false) {
                 close()
             }
         }
-        const Cancel = ()=>{
-            context.emit('cancel')
+        const Cancel = () => {
+            props.cancel?.()
             close()
         }
-        return { close,OnClickoverly,OK,Cancel }
+        return { close, OnClickoverly, OK, Cancel }
     }
 }
 </script>
