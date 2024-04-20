@@ -13,7 +13,7 @@ export default {
 
 <template>
     <div class="layout">
-        <Topnav class="nav" />
+        <Topnav :toggleMenuButtonVisible="true" class="nav" />
         <div class="content">
             <aside v-if="visible">
                 <h2>组件列表</h2>
