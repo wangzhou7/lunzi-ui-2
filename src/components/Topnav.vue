@@ -1,3 +1,15 @@
+<template>
+  <div class="topnav">
+    <div class="logo" @click="toggleMenu"><svg class="icon">
+    <use xlink:href="#icon-danwang"></use></svg></div>
+    <ul class="menu">
+      <li>菜单1</li>
+      <li>菜单2</li>
+    </ul>
+    <span class="toggleAside" @click="toggleMenu"></span>
+  </div>
+</template>
+
 <script lang="ts">
 import { inject, Ref } from "vue";
 export default {
@@ -12,26 +24,10 @@ export default {
 }
 </script>
 
-
-
-<template>
-  <div class="topnav">
-    <div class="logo" @click="toggleMenu">LOGO</div>
-    <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
-    </ul>
-    <span class="toggleAside" @click="toggleMenu"></span>
-  </div>
-</template>
-
-
-
-
-
-
 <style lang="scss" scoped>
+$color:#128d87;
 .topnav {
+  $color:$color;
   display: flex;
   padding: 16px;
   position: fixed;
@@ -45,6 +41,10 @@ export default {
   >.logo {
     max-width: 6em;
     margin-right: auto;
+    > svg {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   >.menu {
