@@ -1,7 +1,10 @@
 <template>
   <div class="topnav">
-    <div class="logo" @click="toggleMenu"><svg class="icon">
-    <use xlink:href="#icon-danwang"></use></svg></div>
+    <router-link to="/" class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-danwang"></use>
+      </svg>
+    </router-link>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
