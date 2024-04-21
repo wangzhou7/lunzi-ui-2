@@ -104,6 +104,7 @@ aside {
     padding-top: 70px;
     height: 100%;
     display: block;
+    z-index: 1;
 
     >h2 {
         margin-bottom: 4px;
