@@ -10,7 +10,7 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>{{ Switch1Demo.__sourceCode }}</pre>
+                <pre class="language-html" v-html="prism.highlight(Switch1Demo.__sourceCode,prism.languages.html,'html')" />
             </div>
         </div>
         <div class="demo">
@@ -22,7 +22,7 @@
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>{{ Switch2Demo.__sourceCode }}</pre>
+                <pre class="language-html" v-html="prism.highlight(Switch2Demo.__sourceCode,prism.languages.html,'html')" />
             </div>
         </div>
     </div>
@@ -34,7 +34,11 @@ import Button from '../lib/Button.vue'
 import { ref } from 'vue'
 import Switch1Demo from './Switch1.Demo.vue'
 import Switch2Demo from './Switch2.Demo .vue'
-console.log(Switch1Demo.__sourceCode)
+import 'prismjs'
+import 'prismjs/themes/prism-okaidia.css'
+const prism = window.Prism
+console.log(window.Prism);
+
 
 export default {
     components: {
@@ -43,7 +47,7 @@ export default {
 
     setup() {
         const bool = ref(false)
-        return { bool,Switch1Demo,Switch2Demo }
+        return { bool,Switch1Demo,Switch2Demo,prism }
     }
 }
 </script>
