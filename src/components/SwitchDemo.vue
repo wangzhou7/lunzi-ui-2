@@ -9,8 +9,8 @@
 <script lang="ts">
 
 import { ref } from 'vue'
-import Switch1Demo from './Switch1.Demo.vue'
-import Switch2Demo from './Switch2.Demo .vue'
+import Switch1Demo from './Switch1Demo.vue'
+import Switch2Demo from './Switch2Demo.vue'
 import Demo from './Demo.vue'
 
 export default {
