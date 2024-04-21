@@ -5,10 +5,10 @@
             <component :is="component" />
         </div>
         <div class="demo-actions">
-            <Button>查看代码</Button>
+            <Button @click="codevisible = !codevisible">查看代码</Button>
         </div>
-        <div class="demo-code">
-            <pre class="language-html" v-html="prism.highlight(component.__sourceCode, prism.languages.html, 'html')" />
+        <div class="demo-code" v-if="codevisible">
+            <pre class="language-html" v-html="html" />
         </div>
     </div>
 </template>
@@ -17,13 +17,19 @@
 import Button from '../lib/Button.vue'
 import 'prismjs'
 import 'prismjs/themes/prism-okaidia.css'
+import { computed, ref } from 'vue'
 const prism = window.Prism
 export default {
+    components: { Button },
     props: {
         component: Object
     },
-    setup() {
-        return { prism }
+    setup(props) {
+        const html = computed(() => {
+            return prism.highlight(props.component.__sourceCode, prism.languages.html, 'html')
+        })
+        const codevisible = ref(false)
+        return { prism, html,codevisible }
     }
 }
 </script>
