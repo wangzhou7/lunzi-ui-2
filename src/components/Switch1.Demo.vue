@@ -1,3 +1,7 @@
+<demo>
+    常规用法
+</demo>
+
 <template>
     <div>
         <Switch v-model:value="bool" />
