@@ -58,6 +58,7 @@ export default {
 <style lang="scss" scoped>
 .router-link-active{
     text-decoration: underline;
+    background-color: white;
 }
 .layout {
     display: flex;

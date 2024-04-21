@@ -26,7 +26,7 @@ export default {
     },
     setup(props) {
         const html = computed(() => {
-            return prism.highlight(props.component.__sourceCode, prism.languages.html, 'html')
+            return prism.highlight(props.component?.__sourceCode, prism.languages.html, 'html')
         })
         const codevisible = ref(false)
         return { prism, html,codevisible }

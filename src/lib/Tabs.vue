@@ -60,10 +60,10 @@ export default {
         const current = computed(() => {
             // console.log('重新 return')
             return defaults.filter((tag) => {
-                return tag.props.title === props.selected})[0]
+                return tag.props?.title === props.selected})[0]
         })
         const titles = defaults.map((tag) => {
-            return tag.props.title
+            return tag.props?.title
         })
         const select = (title: string) => {
             context.emit('update:selected', title)
